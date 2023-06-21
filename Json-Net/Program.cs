@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 #region Path Setup
 string fileName = "file.json";
@@ -44,4 +45,19 @@ team.Select((item) =>
 	Console.WriteLine(item.Name);
 	Console.WriteLine(item.Age);
 });
+#endregion
+
+#region Simple and Dynamic
+
+Console.WriteLine("\nSimple and dynamic\n ==========\n");
+
+var truc = JsonConvert.DeserializeObject<dynamic>(jsonTextData);
+var teamDynamic = truc.team;
+
+foreach (var item in teamDynamic)
+{
+	System.Console.WriteLine(item.id);
+	System.Console.WriteLine(item.Name);
+	System.Console.WriteLine(item.Age);
+}
 #endregion
